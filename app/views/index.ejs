@@ -1,0 +1,44 @@
+<% include header %>
+
+  <h1><%-title %></h1>
+  <p>Welcome to <%-title %></p>
+
+<% include footer %>
+
+<main>
+  <h1>Lions</h1>
+
+  <form name="lions">
+    <div class="textbox">
+      <input
+        type="text"
+        required
+        name="lion-name"/>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>lion name</label>
+    </div>
+
+  <div class="textbox">
+    <input
+      type="text"
+      required
+      name="lion-pride"/>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>lion pride</label>
+  </div>
+
+
+  <input type="number" name="lion-age">
+  <select name="select">
+    <option value="female" selected>female</option>
+    <option value="male">male</option>
+  </select>
+  <button>submit</button>
+  </form>
+
+  <div class="content">
+    <ul class="lion-list"></ul>
+  </div>
+</main>
