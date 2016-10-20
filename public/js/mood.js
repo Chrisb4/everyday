@@ -1,4 +1,7 @@
 $( document ).ready(function(e){
+console.log('mood.js connected');
+var loTest = _.chunk(['a', 'b', 'c', 'd'], 2);
+console.log(loTest);
 
 //This gets the values from the form and returns them in an object with the same keys as the Schema
 var getValues = function(){
@@ -6,7 +9,7 @@ var getValues = function(){
   var meditate = document.querySelector('select[name=meditate]').value;
   var exercise = document.querySelector('select[name=exercise]').value;
   var energy = document.querySelector('input[name=energy]').value;
-  var comments = document.querySelector('input[name=comments]').value;
+  var comments = document.querySelector('textarea[name=comments]').value;
 
   return {
     mood : mood,

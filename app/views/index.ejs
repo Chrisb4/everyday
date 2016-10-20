@@ -1,35 +1,63 @@
 <% include header %>
+<div class="logo">
+  <img id="header-image" src="img/peaks.svg" alt="mountain svg" height="50px" width="50px">
+</div>
+<div class="header-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2 header">
 
-  <h1>Everyday Improve</h1>
-  <p>Improve everyday while tracking your progress towards goals and analyzing your behavior</p>
+        <h1>Everyday Improve</h1>
+        <p>Improve everyday while tracking your progress towards goals and analyzing your behavior</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <main>
-    <h1>Mood</h1>
-
-    <form name="Mood">
-
-      <label>Rank your mood on a scale of 1-100</label>
-      <input type="number" name="mood" max="100"><br>
-      <label>Did you meditate today?</label>
-      <select name="meditate" id="meditate">
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select><br>
-      <label>Did you exercise today?</label>
-      <select name="exercise" id="exercise">
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select><br>
-      <label>Rank your energy on a scale of 1-100</label>
-      <input type="number" name="energy" max="100"><br>
-      <label>Any comments you'd like to add?</label>
-      <input type="text" name="comments"><br>
-
-      <button id="submit">submit</button>
-    </form>
-
-    <div class="content">
-      <ul class="lion-list"></ul>
+<div class="mood-main-wrapper">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 mood-main">
+      <h1>How was your day today?</h1>
+      <form name="Mood">
+        <div class="form-group">
+        <label>Rank your mood on a scale of 1-100</label>
+        <input class="inputs form-control" type="number" name="mood" max="100">
+        </div>
+        <div class="form-group">
+        <label>Did you meditate today?</label>
+        <select class="form-control" name="meditate" id="meditate">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Did you exercise today?</label>
+        <select class="form-control" name="exercise" id="exercise">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Rank your energy on a scale of 1-100</label>
+        <input class="inputs form-control" type="number" name="energy" max="100">
+        </div>
+        <div class="form-group">
+        <label>Any comments you'd like to add?</label>
+        <textarea class="form-control" name="comments" rows="6" cols="40"></textarea>
+        </div>
+        <button class="btn btn-default" id="submit">Submit</button>
+      </form>
+<div style="height: 500px"></div>
+      <div class="content">
+        <ul class="lion-list"></ul>
+      </div>
     </div>
+  </div>
+</div>
+</div>
+
   </main>
   <% include footer %>
