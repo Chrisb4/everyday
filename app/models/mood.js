@@ -4,7 +4,8 @@ var MoodSchema = {
   mood: Number,
   meditate: String,
   exercise: String,
-  energy: String,
+  energy: Number,
+  comments: String,
   time: { type: Date, default: Date.now }
 };
 

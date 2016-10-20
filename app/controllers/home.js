@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
     res.render('index', {
-      title: 'Generator-Express MVC',
+      title: 'Everyday Improve',
       articles: articles
     });
   });
@@ -24,7 +24,8 @@ router.post('/mood', function(req, res, next) {
     mood: req.body.mood,
     meditate: req.body.meditate,
     exercise: req.body.exercise,
-    energy: req.body.energy
+    energy: req.body.energy,
+    comments: req.body.comments
   });
   mood.save(mood, function(error) {
     if (error) {

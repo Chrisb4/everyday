@@ -1,44 +1,35 @@
 <% include header %>
 
-  <h1><%-title %></h1>
-  <p>Welcome to <%-title %></p>
+  <h1>Everyday Improve</h1>
+  <p>Improve everyday while tracking your progress towards goals and analyzing your behavior</p>
 
-<% include footer %>
+  <main>
+    <h1>Mood</h1>
 
-<main>
-  <h1>Lions</h1>
+    <form name="Mood">
 
-  <form name="lions">
-    <div class="textbox">
-      <input
-        type="text"
-        required
-        name="lion-name"/>
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>lion name</label>
+      <label>Rank your mood on a scale of 1-100</label>
+      <input type="number" name="mood" max="100"><br>
+      <label>Did you meditate today?</label>
+      <select name="meditate" id="meditate">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label>Did you exercise today?</label>
+      <select name="exercise" id="exercise">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select><br>
+      <label>Rank your energy on a scale of 1-100</label>
+      <input type="number" name="energy" max="100"><br>
+      <label>Any comments you'd like to add?</label>
+      <input type="text" name="comments"><br>
+
+      <button id="submit">submit</button>
+    </form>
+
+    <div class="content">
+      <ul class="lion-list"></ul>
     </div>
-
-  <div class="textbox">
-    <input
-      type="text"
-      required
-      name="lion-pride"/>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-    <label>lion pride</label>
-  </div>
-
-
-  <input type="number" name="lion-age">
-  <select name="select">
-    <option value="female" selected>female</option>
-    <option value="male">male</option>
-  </select>
-  <button>submit</button>
-  </form>
-
-  <div class="content">
-    <ul class="lion-list"></ul>
-  </div>
-</main>
+  </main>
+  <% include footer %>

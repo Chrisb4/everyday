@@ -1,30 +1,39 @@
-console.log('mood.js is connected');
-var trest = document.readyState;console.log(trest)
 $( document ).ready(function(e){
 
-
-var test = document.readyState;console.log(test)
-
-
-})
 //This gets the values from the form and returns them in an object with the same keys as the Schema
 var getValues = function(){
-  var name = document.querySelector('input[name=lion-name]').value;
-  var pride = document.querySelector('input[name=lion-pride]').value;
-  var age = document.querySelector('input[type=number').value;
-  var gender = document.querySelector('select');
-  gender = gender.options[gender.selectedIndex].value;
-
-
-  document.querySelector('input[name=lion-name]').value = '';
-  document.querySelector('input[name=lion-pride]').value = '';
-  document.querySelector('input[type=number').value = '';
-
+  var mood = document.querySelector('input[name=mood]').value;
+  var meditate = document.querySelector('select[name=meditate]').value;
+  var exercise = document.querySelector('select[name=exercise]').value;
+  var energy = document.querySelector('input[name=energy]').value;
+  var comments = document.querySelector('input[name=comments]').value;
 
   return {
-    name: name,
-    pride: pride,
-    age: age,
-    gender: gender
+    mood : mood,
+    meditate: meditate,
+    exercise: exercise,
+    energy: energy,
+    comments: comments
   };
 };
+$('#submit').click(function(e){
+  e.preventDefault();
+  var value = getValues();
+  console.log(value);
+
+  var postMood = $.ajax({
+    url: '/mood',
+    type: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify(value)
+  });
+  postMood.done(function(data){
+    console.log(data);
+  });
+  postMood.fail(function(jqXHR, textStatus, errorThrown){
+    console.log(errorThrown);
+  })
+});
+
+});
