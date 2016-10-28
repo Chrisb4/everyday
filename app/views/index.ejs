@@ -1,8 +1,9 @@
 <% include header %>
-<div class="logo">
-  <img id="header-image" src="img/peaks.svg" alt="mountain svg" height="50px" width="50px">
-</div>
+
 <div class="header-wrapper">
+  <div class="logo">
+    <img id="header-image" src="img/peaks.svg" alt="mountain svg" height="50px" width="50px">
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2 header">
@@ -13,7 +14,7 @@
     </div>
   </div>
 </div>
-
+<h1><%title%></h1>
 
   <main>
 <div class="mood-main-wrapper">
@@ -57,6 +58,17 @@
     </div>
   </div>
 </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 test">
+      <h1>moods should be down here:</h1>
+    <h1>Here is a mood: </h1>
+    <div class="mood-target"></div>
+    <button class="btn btn-default" id="get-moods">Get Moods</button>
+    </div>
+  </div>
 </div>
 
   </main>
