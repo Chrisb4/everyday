@@ -1,7 +1,9 @@
+
 $( document ).ready(function(e){
-console.log('mood.js connected');
-var loTest = _.chunk(['a', 'b', 'c', 'd'], 2);
-console.log(loTest);
+console.log('main.js connected');
+
+
+
 
 // name and empty variable to hold moods after we get them from the get-moods ajax call
 var moodHistory;
@@ -42,25 +44,51 @@ $('#submit').click(function(e){
   })
 });
 
-$('#get-moods').click(function(){
-  var getMoods = $.ajax({
+var timeLoop = function(moodHistory){
+  for (var i = 0; i < moodHistory.length; i++) {
+    var z = moment(moodHistory[i].time).format("ddd MMMM Do h:m A");
+    $('.mood-target').append('<div class="mood-container"><div><h3>' + z + '</h3><p>' + moodHistory[i].mood + '</p></div><div><h3>Did You Exercise?</h3><p>' + moodHistory[i].exercise + '</p></div><div><h3>Did You Meditate?</h3><p>' + moodHistory[i].meditate + '</p></div><div><h3>Energy Level:</h3><p>' + moodHistory[i].energy + '</p></div><div><h3>Comments:</h3><p>' + moodHistory[i].comments + '</p></div></div>');
+  }
+}
+
+var getMoodsOnLoad = function(){
+  var getmoods = $.ajax({
     url: '/moods',
     type: 'GET',
-    datatype: 'json',
+    dataType: 'json',
     contentType: 'application/json'
   });
-  getMoods.done(function(data){
-
+  getmoods.done(function(data){
     moodHistory = data;
-    console.log(moodHistory[5].meditate);
+    timeLoop(moodHistory);
   });
-  getMoods.fail(function(jqXHR, textStatus, errorThrown){
+  getmoods.fail(function(jqXHR, textStatus, errorThrown){
     console.log(errorThrown);
   });
+};
+getMoodsOnLoad();
 
-  $('.mood-target').append("<p>" + moodHistory[5].meditate + "</p>");
 
-});
+$('#get-moods').click(function(){
+  $('.mood-target').toggle();
+})
+
+// $('#get-moods').click(function(){
+//   var getMoods = $.ajax({
+//     url: '/moods',
+//     type: 'GET',
+//     datatype: 'json',
+//     contentType: 'application/json'
+//   });
+//   getMoods.done(function(data){
+//
+//     moodHistory = data;
+//     timeLoop(moodHistory);
+//   });
+//   getMoods.fail(function(jqXHR, textStatus, errorThrown){
+//     console.log(errorThrown);
+//   });
+// });
 
 
 });
