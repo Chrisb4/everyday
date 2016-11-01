@@ -1,8 +1,10 @@
 var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
-  Mood = mongoose.model('Mood')
+  Article = mongoose.model('Article'),
+  Mood = mongoose.model('Mood'),
+  Debit = mongoose.model('Debit');
+
 
 module.exports = function (app) {
   app.use('/', router);
@@ -38,7 +40,30 @@ router.get('/moods', function(req, res, next){
   getMoods.then(function(moods){
     res.json(moods);
   });
-})
+});
+
+router.get('/debits', function(req, res, next){
+  var getDebits = Debit.find({});
+  getDebits.then(function(debits){
+    res.json(debits);
+  });
+});
+
+router.post('/debits', function(req, res, next) {
+  var debit = new Debit({
+    amount: req.body.amount,
+    type: req.body.type,
+    comment: req.body.comment,
+    label: req.body.label
+  });
+  debit.save(debit, function(error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.json(debit);
+    }
+  })
+});
 
 router.get('/shopping_list', function(req, res, next) {
   var cartItemsRequest = CartItem.find({userId: req.user._id});
