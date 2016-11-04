@@ -9,7 +9,7 @@ console.log('main.js connected');
 var moodHistory;
 
 //This gets the values from the form and returns them in an object with the same keys as the Schema
-var getValues = function(){
+var getMoodValues = function(){
   var mood = document.querySelector('input[name=mood]').value;
   var meditate = document.querySelector('select[name=meditate]').value;
   var exercise = document.querySelector('select[name=exercise]').value;
@@ -24,9 +24,22 @@ var getValues = function(){
     comments: comments
   };
 };
-$('#submit').click(function(e){
+var getDebitValues = function(){
+  var amount = document.querySelector('input[name=amount]').value;
+  var type = document.querySelector('select[name=type]').value;
+  var comment = document.querySelector('textarea[name=comment]').value;
+  var label = document.querySelector('select[name=label]').value;
+
+  return {
+    amount: amount,
+    type: type,
+    comment: comment,
+    label: label
+  }
+};
+$('#submit-mood').click(function(e){
   e.preventDefault();
-  var value = getValues();
+  let value = getMoodValues();
   console.log(value);
 
   var postMood = $.ajax({
@@ -38,10 +51,35 @@ $('#submit').click(function(e){
   });
   postMood.done(function(data){
     console.log(data);
+    $('#mood-form').each(function(){
+      this.reset();
+    });
   });
   postMood.fail(function(jqXHR, textStatus, errorThrown){
     console.log(errorThrown);
   })
+});
+$('#submit-debit').click(function(e){
+  e.preventDefault();
+  let value = getDebitValues();
+  console.log(value);
+
+  var postDebit = $.ajax({
+    url: '/debits',
+    type: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify(value)
+  });
+  postDebit.done(function(data){
+    console.log(data);
+    $('#debit-form').each(function(){
+      this.reset();
+    });
+  });
+  postDebit.fail(function(jqXHR, textStatus, errorThrown){
+    console.log(errorThrown);
+  });
 });
 
 var timeLoop = function(moodHistory){

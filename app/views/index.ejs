@@ -16,16 +16,62 @@
 </div>
 <h1><%title%></h1>
 
-  <main>
+<main>
+
+<div class="money-main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <h1 class="title">Money</h1>
+      </div>
+      <div class="col-xs-12 col-md-8 money-main">
+        <div class="spend-tracker">
+          <h1>Money Tracker</h1>
+          <form id="debit-form" name="money">
+            <div class="form-group">
+              <label>How much was your purchase?</label>
+              <input class="inputs form-control" type="number" name="amount" placeholder="$">
+            </div>
+            <div class="form-group">
+              <select class="form-control inputs" name="type" id="type">
+                <option value="" selected>How did you Pay?</option>
+                <option value="cash">Cash</option>
+                <option value="debit">Debit</option>
+                <option value="creditBOA">CreditBOA</option>
+                <option value="credit">Credit</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control" name="label" id="label">
+                <option value="" selected>Category?</option>
+                <option value="food-groceries">Food</option>
+                <option value="food-sitDown">Restaurant-sitdown</option>
+                <option value="food-fast">Restaurant-Fast!</option>
+                <option value="gas">Gas</option>
+                <option value="music-supplies">Music Supplies</option>
+                <option value="miscellaneous">Miscellaneous</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="comment" rows="3" cols="40" placeholder="Any comments?"></textarea>
+            </div>
+            <button class="btn btn-default" id="submit-debit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="mood-main-wrapper">
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <h1>Moods</h1>
+      <h1 class="title">Moods</h1>
     </div>
     <div class="col-xs-12 col-md-8 mood-main">
       <h1>How was your day today?</h1>
-      <form name="Mood">
+      <form id="mood-form" name="Mood">
         <div class="form-group">
         <label>Rank your mood on a scale of 1-100</label>
         <input class="inputs form-control" type="number" name="mood" max="100">
@@ -50,9 +96,9 @@
         </div>
         <div class="form-group">
         <label>Any comments you'd like to add?</label>
-        <textarea class="form-control" name="comments" rows="6" cols="40"></textarea>
+        <textarea class="form-control" name="comments" rows="3" cols="40"></textarea>
         </div>
-        <button class="btn btn-default" id="submit">Submit</button>
+        <button class="btn btn-default" id="submit-mood">Submit</button>
       </form>
       <button class="btn btn-default" id="get-moods">Get Moods</button>
     </div>

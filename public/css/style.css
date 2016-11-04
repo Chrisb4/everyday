@@ -16,9 +16,13 @@ body {
 #header-image {
 
 }
+.title {
+  color: #757575;
+}
+.money-main {
+  color: #fff;
+}
 .mood-main {
-  /*border: 5px solid #BDBDBD;*/
-  border-radius: 10px;
   color: #fff;
 }
 .form-control {

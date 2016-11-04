@@ -1,5 +1,6 @@
 var express = require('express'),
   router = express.Router(),
+  _ = require('lodash'),
   mongoose = require('mongoose'),
   Article = mongoose.model('Article'),
   Mood = mongoose.model('Mood'),
