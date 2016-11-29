@@ -19,19 +19,28 @@ body {
 .title {
   color: #03A9F4;
 }
+.fontz {
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  word-spacing: 0.2em;
+}
 /* Style for the Category Selectors*/
 .category-selector {
   height: 200px;
+  width: 300px;
   border: 3px solid #03A9F4;
+  background-color: hsla(199, 98%, 48%, 0.73);
   color: #fff;
   border-radius: 5px;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 40px;
+  margin-top: 80px;
+  display: inline-block;
+  cursor: pointer;
   transition: background-color 0.5s ease;
 }
-.category-selector h1 {
-  margin-top: 50%;
-  margin-left: 20%;
+.category-selector > h1 {
+text-align: center;
 }
 .category-selector:hover {
 
@@ -127,7 +136,26 @@ a {
   color: #00B7FF;
 }
 
+/* Class's for actions*/
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 @media (max-width: 500px) {
+
+  .category-selector {
+    height: 100px;
+    width: 100px;
+    /*margin-right: 20px;*/
+  }
+  .category-selector > h1 {
+    font-size: 2em;
+  }
 
   .form-control {
     width: 100%;

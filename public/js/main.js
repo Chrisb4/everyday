@@ -5,8 +5,25 @@ console.log('main.js connected');
 
 
 
-// name and empty variable to hold moods after we get them from the get-moods ajax call
+// Name and empty variable to hold moods after we get them from the get-moods ajax call
 var moodHistory;
+
+//Category selector actions
+var $money = $('.money-main-wrapper');
+var $mood = $('.mood-main-wrapper');
+
+$('#money-selector').click(function(){
+  $money.removeClass('hidden');
+  $mood.addClass('hidden');
+});
+$('#mood-selector').click(function(){
+  $mood.removeClass('hidden');
+  $money.addClass('hidden');
+})
+$('#home-selector').click(function(){
+  $mood.addClass('hidden');
+  $money.addClass('hidden');
+})
 
 //This gets the values from the form and returns them in an object with the same keys as the Schema
 var getMoodValues = function(){
