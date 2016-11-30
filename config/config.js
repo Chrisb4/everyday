@@ -29,7 +29,7 @@ var config = {
       name: 'ajaxer'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/ajaxer-production'
+    db: process.env.DB_CONN_PRESIDENT
   }
 };
 
