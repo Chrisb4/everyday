@@ -29,11 +29,7 @@ var config = {
       name: 'ajaxer'
     },
     port: process.env.PORT || 3000,
-<<<<<<< HEAD
-    db: 'mongodb://president:president@ds037234.mlab.com:37234/presidents'
-=======
     db: process.env.DB_CONN_PRESIDENT
->>>>>>> dataStructuresHeroku
   }
 };
 
