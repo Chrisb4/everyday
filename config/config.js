@@ -27,7 +27,7 @@ var config = {
       name: 'ajaxer'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/ajaxer-production'
+    db: 'mongodb://president:president@ds037234.mlab.com:37234/presidents'
   }
 };
 
