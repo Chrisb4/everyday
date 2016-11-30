@@ -9,20 +9,104 @@ body {
   border-bottom: 3px solid #FFEB3B;
 }
 .logo {
-  position: fixed;
-  top: 10px;
-  left: 10px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
 }
 #header-image {
 
 }
+.title {
+  color: #03A9F4;
+}
+.fontz {
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  word-spacing: 0.2em;
+}
+/* Style for the Category Selectors*/
+.category-selector {
+  height: 200px;
+  width: 300px;
+  border: 3px solid #03A9F4;
+  background-color: hsla(199, 98%, 48%, 0.73);
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 40px;
+  margin-top: 80px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.category-selector > h1 {
+text-align: center;
+}
+.category-selector:hover {
+
+  background-color: #D32F2F;
+}
+
+#category-container {
+  position: relative;
+  margin: 10px auto;
+  width: 450px;
+  height: 281px;
+  z-index: 1;
+}
+#category-container {
+  perspective: 1000;
+}
+#category-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 3.0s linear;
+}
+#category-container:hover #category-card {
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #fff;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #aaa;
+}
+
+
+.money-main {
+  color: #fff;
+}
 .mood-main {
-  /*border: 5px solid #BDBDBD;*/
-  border-radius: 10px;
   color: #fff;
 }
 .form-control {
   width: 50%;
+}
+.mood-container {
+  border: 3px solid #FFCDD2;
+  border-radius: 5px;
+  color: #fff;
+  width: 350px;
+  display: inline-block;
+  margin: 20px;
+}
+.mood-container h3 {
+  padding: 5px;
+}
+.mood-container p {
+  padding-left: 5px;
 }
 
 input[type=text],
@@ -52,7 +136,26 @@ a {
   color: #00B7FF;
 }
 
+/* Class's for actions*/
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 @media (max-width: 500px) {
+
+  .category-selector {
+    height: 100px;
+    width: 100px;
+    /*margin-right: 20px;*/
+  }
+  .category-selector > h1 {
+    font-size: 2em;
+  }
 
   .form-control {
     width: 100%;
